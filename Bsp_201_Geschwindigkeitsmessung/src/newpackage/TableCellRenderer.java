@@ -27,7 +27,7 @@ public class TableCellRenderer implements javax.swing.table.TableCellRenderer {
             } else if (gemessen > 10) {
                 lab.setBackground(Color.yellow);
             } else {
-                lab.setBackground(Color.blue);
+                lab.setBackground(Color.cyan);
             }
         }
         return lab;

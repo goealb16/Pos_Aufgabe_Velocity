@@ -3,11 +3,12 @@
 */
 package newpackage;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 
-public class Messung {
+public class Messung implements Serializable{
     private LocalDate date;
     private LocalTime time;
     private String kennz;

@@ -3,6 +3,8 @@
 package newpackage;
 
 import java.awt.Frame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -26,6 +28,10 @@ private TableModel model = new TableModel();
         miDurch = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTable = new javax.swing.JTable();
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        miLoad = new java.awt.MenuItem();
+        miSave = new java.awt.MenuItem();
 
         miAdd.setText("Hinzufügen");
         miAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +82,28 @@ private TableModel model = new TableModel();
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
+        menu1.setLabel("File");
+
+        miLoad.setLabel("Load");
+        miLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLoadActionPerformed(evt);
+            }
+        });
+        menu1.add(miLoad);
+
+        miSave.setLabel("Save");
+        miSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSaveActionPerformed(evt);
+            }
+        });
+        menu1.add(miSave);
+
+        menuBar1.add(menu1);
+
+        setMenuBar(menuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,6 +129,22 @@ private TableModel model = new TableModel();
         JOptionPane.showMessageDialog(this, model.getDurch());
     }//GEN-LAST:event_miDurchActionPerformed
 
+    private void miLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLoadActionPerformed
+    try {
+        model.load();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    }//GEN-LAST:event_miLoadActionPerformed
+
+    private void miSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSaveActionPerformed
+    try {
+        model.save();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    }//GEN-LAST:event_miSaveActionPerformed
+
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -116,9 +160,13 @@ private TableModel model = new TableModel();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jtTable;
+    private java.awt.Menu menu1;
+    private java.awt.MenuBar menuBar1;
     private javax.swing.JMenuItem miAdd;
     private javax.swing.JMenuItem miDel;
     private javax.swing.JMenuItem miDurch;
+    private java.awt.MenuItem miLoad;
+    private java.awt.MenuItem miSave;
     // End of variables declaration//GEN-END:variables
 
 }
